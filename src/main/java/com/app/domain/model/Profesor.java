@@ -14,4 +14,24 @@ public class Profesor {
         this.telefono = telefono;
         esDoctor = false;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getDespacho() {
+        return despacho;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public boolean isEsDoctor() {
+        return esDoctor;
+    }
 }
