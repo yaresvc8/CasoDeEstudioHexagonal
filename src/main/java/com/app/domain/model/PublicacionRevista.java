@@ -18,3 +18,4 @@ public class PublicacionRevista extends Publicacion{
         this.paginasFin = paginasFin;
     }
 }
+

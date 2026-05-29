@@ -1,5 +1,15 @@
 package com.app.domain.valueobjects;
 
-public class FechaInicial {
+import java.time.LocalDate;
 
+public record FechaInicio(LocalDate value) {
+
+    public FechaInicio {
+
+        if (value == null) {
+            throw new IllegalArgumentException(
+                "La fecha de inicio no puede ser nula"
+            );
+        }
+    }
 }

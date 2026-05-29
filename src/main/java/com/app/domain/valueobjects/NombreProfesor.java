@@ -1,5 +1,13 @@
 package com.app.domain.valueobjects;
 
-public class NombreProfesor {
+public record NombreProfesor(String value) {
 
+    public NombreProfesor {
+
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException(
+                "El nombre del profesor no puede estar vacio"
+            );
+        }
+    }
 }

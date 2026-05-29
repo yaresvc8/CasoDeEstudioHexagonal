@@ -1,22 +1,44 @@
 package com.app.domain.model;
 
-import java.sql.Timestamp;
 import java.util.List;
 
-public class ProyectoInvestigacion {
-    private String codigo;
-    private String nombre;
-    private String acronimo;
-    private double presupuestoTotal;
-    private String programa;
-    private Timestamp fechaInicio;
-    private Timestamp fechaFin;
-    private String descripcion;
-    private final Profesor investigadorPrincipal;
-    private List<Publicacion> ListaDePublicaciones;
-    private List<Profesor> Investigadores;
+import com.app.domain.valueobjects.Acronimo;
+import com.app.domain.valueobjects.CodigoProyecto;
+import com.app.domain.valueobjects.DescripcionProyecto;
+import com.app.domain.valueobjects.FechaFinal;
+import com.app.domain.valueobjects.FechaInicio;
+import com.app.domain.valueobjects.NombreProyecto;
+import com.app.domain.valueobjects.Presupuesto;
+import com.app.domain.valueobjects.Programa;
 
-    public ProyectoInvestigacion(String codigo, String nombre, String acronimo, double presupuestoTotal, String programa, Timestamp fechaInicio, Timestamp fechaFin, String descripcion, Profesor investigadorPrincipal) {
+public class ProyectoInvestigacion {
+
+    private CodigoProyecto codigo;
+    private NombreProyecto nombre;
+    private Acronimo acronimo;
+    private Presupuesto presupuestoTotal;
+    private Programa programa;
+    private FechaInicio fechaInicio;
+    private FechaFinal fechaFin;
+    private DescripcionProyecto descripcion;
+
+    private final Profesor investigadorPrincipal;
+
+    private List<Publicacion> listaDePublicaciones;
+    private List<Profesor> investigadores;
+
+    public ProyectoInvestigacion(
+            CodigoProyecto codigo,
+            NombreProyecto nombre,
+            Acronimo acronimo,
+            Presupuesto presupuestoTotal,
+            Programa programa,
+            FechaInicio fechaInicio,
+            FechaFinal fechaFin,
+            DescripcionProyecto descripcion,
+            Profesor investigadorPrincipal
+    ) {
+
         this.codigo = codigo;
         this.nombre = nombre;
         this.acronimo = acronimo;
@@ -27,5 +49,4 @@ public class ProyectoInvestigacion {
         this.descripcion = descripcion;
         this.investigadorPrincipal = investigadorPrincipal;
     }
-
 }

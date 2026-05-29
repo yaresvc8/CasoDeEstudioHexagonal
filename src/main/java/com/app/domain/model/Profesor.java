@@ -1,33 +1,45 @@
 package com.app.domain.model;
 
+import com.app.domain.valueobjects.ApellidoProfesor;
+import com.app.domain.valueobjects.Despacho;
+import com.app.domain.valueobjects.NombreProfesor;
+import com.app.domain.valueobjects.Telefono;
+
 public class Profesor {
-    private String nombre;
-    private String apellido;
-    private String despacho;
-    private String telefono;
+
+    private NombreProfesor nombre;
+    private ApellidoProfesor apellido;
+    private Despacho despacho;
+    private Telefono telefono;
     private boolean esDoctor;
 
-    public Profesor (String nombre, String apellido, String despacho, String telefono){
+    public Profesor(
+            NombreProfesor nombre,
+            ApellidoProfesor apellido,
+            Despacho despacho,
+            Telefono telefono
+    ) {
+
         this.nombre = nombre;
         this.apellido = apellido;
         this.despacho = despacho;
         this.telefono = telefono;
-        esDoctor = false;
+        this.esDoctor = false;
     }
 
-    public String getNombre() {
+    public NombreProfesor getNombre() {
         return nombre;
     }
 
-    public String getApellido() {
+    public ApellidoProfesor getApellido() {
         return apellido;
     }
 
-    public String getDespacho() {
+    public Despacho getDespacho() {
         return despacho;
     }
 
-    public String getTelefono() {
+    public Telefono getTelefono() {
         return telefono;
     }
 

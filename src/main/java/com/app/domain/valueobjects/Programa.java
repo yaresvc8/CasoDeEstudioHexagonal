@@ -1,5 +1,13 @@
 package com.app.domain.valueobjects;
 
-public class Programa {
+public record Programa(String value) {
 
+    public Programa {
+
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException(
+                "El programa no puede estar vacio"
+            );
+        }
+    }
 }

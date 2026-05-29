@@ -1,5 +1,13 @@
 package com.app.domain.valueobjects;
 
-public class Descriptor {
+public record Descriptor(String value) {
 
+    public Descriptor {
+
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException(
+                "El descriptor no puede estar vacio"
+            );
+        }
+    }
 }
