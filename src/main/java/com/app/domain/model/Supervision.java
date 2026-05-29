@@ -1,27 +1,44 @@
 package com.app.domain.model;
 
-import java.sql.Timestamp;
+import java.time.temporal.ChronoUnit;
+
+import com.app.domain.valueobjects.FechaFinal;
+import com.app.domain.valueobjects.FechaInicio;
 
 public class Supervision {
+
     private final Profesor supervisor;
     private final Profesor supervisado;
-    private Timestamp fechaInicio;
-    private Timestamp fechaFin;
+    private FechaInicio fechaInicio;
+    private FechaFinal fechaFin;
 
-    public Supervision (Profesor supervisor, Profesor supervisado, Timestamp fechaInicio, Timestamp fechaFin) throws Exception {
-        if(supervisor.isEsDoctor() && !supervisado.isEsDoctor()){
+    public Supervision(
+            Profesor supervisor,
+            Profesor supervisado,
+            FechaInicio fechaInicio,
+            FechaFinal fechaFin
+    ) throws Exception {
+
+        if (supervisor.isEsDoctor() && !supervisado.isEsDoctor()) {
+
             this.supervisor = supervisor;
             this.supervisado = supervisado;
             this.fechaInicio = fechaInicio;
             this.fechaFin = fechaFin;
 
-        }else{
-            throw new Exception("El supervisor debe ser un profesor con título de doctor y el supervisado no debe ser un profesor con título de doctor.");
+        } else {
+
+            throw new Exception(
+                "El supervisor debe ser doctor y el supervisado no debe ser doctor."
+            );
         }
     }
 
-    // Obtener los días de supervisión
-    public int getDiasDeSupervision(){
-        return (int) ((fechaFin.getTime() - fechaInicio.getTime()) / (1000 * 60 * 60 * 24));
+    public long getDiasDeSupervision() {
+
+        return ChronoUnit.DAYS.between(
+                fechaInicio.value(),
+                fechaFin.value()
+        );
     }
 }
